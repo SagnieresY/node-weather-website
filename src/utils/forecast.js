@@ -12,8 +12,11 @@ const forecast = (long, lat, callback) => {
     } else if (body.error) {
       callback('Unable to find location', undefined)
     } else {
-      callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees and it feels like ' + body.current.feelslike + ' degrees. The humidity is ' + body.current.humidity + '%, and the wind speed is ' + body.current.wind_speed + ' coming from ' + body.current.wind_degree + body.current.wind_dir + '.')
-  }
+      callback(undefined, {
+        weatherInfo: body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees and it feels like ' + body.current.feelslike + ' degrees. The humidity is ' + body.current.humidity + '%, and the wind speed is ' + body.current.wind_speed + ' coming from ' + body.current.wind_degree + body.current.wind_dir + '.',
+        weatherIcon: body.current.weather_icons[0]
+      })
+    }
   })
 }
 
