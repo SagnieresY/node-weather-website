@@ -11,6 +11,8 @@ const forecast = require('./utils/forecast')
 // console.log(__filename)
 
 const app = express()
+
+//Making sure the port is heroku or 3000 for local dev
 const port = process.env.PORT || 3000
 
 
@@ -117,6 +119,7 @@ app.get('*', (req, res) => {
 //funrun.rocks/help
 //funrun.rocks/about
 
+//Making sure the port is heroku or 3000 for local dev
 app.listen(port, () => {
   console.log('server is up on port' + port)
 })
